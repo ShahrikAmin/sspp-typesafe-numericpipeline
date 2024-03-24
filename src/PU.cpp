@@ -1,58 +1,22 @@
+#include "../include/PU.hpp"
+#include <numeric>
 #include <iostream>
-#include <SSPP.hpp>
-#include <array>
+#include <cmath>
+#include <algorithm>
 
-using namespace std;
-
-template <typename IT>
-void SSPP<IT>::execute(array<IT, 5> &a)
+std::optional<std::array<float, 3>> PU1::input(const std::array<int, 5> &arr)
 {
-    PU1::input(1);
-};
+    float average = std::accumulate(arr.begin(), arr.end(), 0.0f) / arr.size();
+    return {{average, average, average}};
+}
 
-template <typename IT>
-void SSPP<IT>::execute()
+std::optional<float> PU2::input(const std::array<float, 3> &arr)
 {
-    PU1::input();
-};
+    return *std::max_element(arr.begin(), arr.end());
+}
 
-struct PU1
+void PU3::input(float f)
 {
-    void input(int i){
-
-    };
-
-    float output()
-    {
-        PU2 pu2;
-        pu2.input(3.14f);
-    };
-};
-
-struct PU2
-{
-    void input(float f){
-
-    };
-    int output()
-    {
-        PU3 pu3;
-        pu3.input(1);
-    };
-};
-
-struct PU3
-{
-    void input(int a){
-
-    };
-    int output()
-    {
-        cout << "output" << endl;
-    };
-};
-
-int main()
-{
-    return 0;
+    int output = static_cast<int>(std::floor(f));
+    std::cout << "SSPP Output: " << output << std::endl;
 }
