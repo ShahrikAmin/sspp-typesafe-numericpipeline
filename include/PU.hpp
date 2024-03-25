@@ -4,6 +4,7 @@
 #include <array>
 #include <optional>
 #include <numeric>
+#include <algorithm>
 
 class PU1
 {
@@ -18,7 +19,10 @@ public:
 class PU2
 {
 public:
-    std::optional<float> input(const std::array<float, 3> &arr);
+    template <typename IT>
+    std::optional<float> input(IT begin, IT end) {
+        return *std::max_element(begin, end);
+    }
 };
 
 class PU3

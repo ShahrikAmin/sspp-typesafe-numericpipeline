@@ -26,7 +26,7 @@ void SSPP<IT>::execute()
     // Advance data from stage2 to stage3 and process with PU2 if available
     if (stage2)
     {
-        stage3 = pu2.input(stage2.value());
+        stage3 = pu2.input(stage2.value().begin(), stage2.value().end());
         stage2.reset();
     }
 
