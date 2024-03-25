@@ -33,7 +33,7 @@ void SSPP<IT>::execute()
     // Advance data from stage1 to stage2 and process with PU1 if available
     if (stage1)
     {
-        stage2 = pu1.input(stage1.value());
+        stage2 = pu1.input(stage1.value().begin(), stage1.value().end());
         stage1.reset();
     }
 }

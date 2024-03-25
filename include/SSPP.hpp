@@ -13,7 +13,7 @@ public:
     PU2 pu2;
     PU3 pu3;
 
-    std::optional<std::array<IT, 5>> stage1;
+    std::optional<std::array<int, 5>> stage1;
     std::optional<std::array<float, 3>> stage2;
     std::optional<float> stage3;
 

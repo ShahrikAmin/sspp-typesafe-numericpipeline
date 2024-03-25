@@ -4,12 +4,6 @@
 #include <cmath>
 #include <algorithm>
 
-std::optional<std::array<float, 3>> PU1::input(const std::array<int, 5> &arr)
-{
-    float average = std::reduce(arr.begin(), arr.end()) / arr.size();
-    return {{average, average, average}};
-}
-
 std::optional<float> PU2::input(const std::array<float, 3> &arr)
 {
     return *std::max_element(arr.begin(), arr.end());

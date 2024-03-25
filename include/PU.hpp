@@ -3,11 +3,16 @@
 
 #include <array>
 #include <optional>
+#include <numeric>
 
 class PU1
 {
 public:
-    std::optional<std::array<float, 3>> input(const std::array<int, 5> &arr);
+    template <typename IT>
+    std::optional<std::array<float, 3>> input(IT begin, IT end) {
+        float average = std::reduce(begin, end) / (end - begin);
+        return {{average, average, average}};
+    }
 };
 
 class PU2
