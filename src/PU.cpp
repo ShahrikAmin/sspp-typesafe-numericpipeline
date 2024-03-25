@@ -6,7 +6,7 @@
 
 std::optional<std::array<float, 3>> PU1::input(const std::array<int, 5> &arr)
 {
-    float average = std::accumulate(arr.begin(), arr.end(), 0.0f) / arr.size();
+    float average = std::reduce(arr.begin(), arr.end()) / arr.size();
     return {{average, average, average}};
 }
 
