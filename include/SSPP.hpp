@@ -5,13 +5,16 @@
 
 template <typename T>
 class SSPP {
-    PU<T> pu;
+    PU1<T> pu1;
+    PU2<T> pu2;
+    PU3<T> pu3;
+
     public:
         template <typename IT>
         void execute(IT begin, IT end) {
-            auto output1 = pu.step1(begin, end);
-            auto output2 = pu.step2(output1.begin(), output1.end());
-            std::cout << "SSPP Output: " << pu.step3(output2) << std::endl;
+            auto output1 = pu1.execute(begin, end);
+            auto output2 = pu2.execute(output1.begin(), output1.end());
+            std::cout << "SSPP Output: " << pu3.execute(output2) << std::endl;
         }
 };
 
