@@ -1,34 +1,31 @@
 #ifndef PU_HPP
 #define PU_HPP
 
-#include <array>
-#include <optional>
 #include <numeric>
+#include <iostream>
+#include <cmath>
 #include <algorithm>
+#include <limits>
 
-class PU1
-{
-public:
-    template <typename IT>
-    std::optional<std::array<float, 3>> input(IT begin, IT end) {
-        float average = std::reduce(begin, end) / (end - begin);
-        return {{average, average, average}};
-    }
-};
+template <typename T>
+class PU {
+    T maxNum = std::numeric_limits<T>::min();   // Store the maximum number encountered by the processing unit
+    public:
+        template <typename IT>
+        std::vector<T> step1(IT begin, IT end) {
+            T average = std::reduce(begin, end) / (end - begin);
+            return std::vector<T>(3, average);
+        }
 
-class PU2
-{
-public:
-    template <typename IT>
-    std::optional<float> input(IT begin, IT end) {
-        return *std::max_element(begin, end);
-    }
-};
+        template <typename IT>
+        T step2(IT begin, IT end) {
+            maxNum = std::max(maxNum, *std::max_element(begin, end));
+            return maxNum;
+        }
 
-class PU3
-{
-public:
-    void input(float f);
+        T step3(T num) {
+            return std::floor(num);
+        }
 };
 
 #endif // PU_HPP
