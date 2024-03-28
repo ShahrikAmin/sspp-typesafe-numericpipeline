@@ -10,9 +10,8 @@
 template <typename T>
 class PU1 {
     public:
-        template <typename IT>
-        std::vector<T> execute(IT begin, IT end) {
-            T average = std::reduce(begin, end) / (end - begin);
+        auto execute(auto input) {
+            T average = std::reduce(input.begin(), input.end()) / (input.end() - input.begin());
             return std::vector<T>(3, average);
         }
 };
@@ -21,9 +20,8 @@ template <typename T>
 class PU2 {
     T maxNum = std::numeric_limits<T>::min();   // Store the maximum number encountered by the processing unit
     public:
-        template <typename IT>
-        T execute(IT begin, IT end) {
-            maxNum = std::max(maxNum, *std::max_element(begin, end));
+        auto execute(auto input) {
+            maxNum = std::max(maxNum, *std::max_element(input.begin(), input.end()));
             return maxNum;
         }
 };
@@ -31,8 +29,8 @@ class PU2 {
 template <typename T>
 class PU3 {
     public:
-        T execute(T num) {
-            return std::floor(num);
+        auto execute(auto input) {
+            return std::floor(input);
         }
 };
 
