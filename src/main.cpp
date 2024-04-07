@@ -1,5 +1,6 @@
 #include "../include/SSPP.hpp"
 #include <array>
+#include <vector> 
 
 int main()
 {
