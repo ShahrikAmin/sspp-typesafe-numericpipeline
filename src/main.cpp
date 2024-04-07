@@ -1,6 +1,5 @@
 #include "../include/SSPP.hpp"
 #include <array>
-#include <vector> 
 
 int main()
 {
@@ -12,10 +11,10 @@ int main()
     std::array<int, 5> arr4 = {2, 2, 8, 8, 5};
 
     // Calls input data and also advance the pipeline
-    sspp.execute(arr1);
-    sspp.execute(arr2);
-    sspp.execute(arr3);
-    sspp.execute(arr4);
+    sspp.execute(arr1.begin(), arr1.end());
+    sspp.execute(arr2.begin(), arr2.end());
+    sspp.execute(arr3.begin(), arr3.end());
+    sspp.execute(arr4.begin(), arr4.end());
 
     return 0;
 }

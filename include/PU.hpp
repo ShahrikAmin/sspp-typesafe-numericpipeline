@@ -12,9 +12,10 @@ template <typename T>
 class PU1
 {
 public:
-    auto execute(auto input)
+    template <typename IT>
+    auto execute(IT begin, IT end)
     {
-        auto size = input.end() - input.begin();
+        auto size = end - begin;
         if (size <= 0)
         {
             throw std::length_error("Input range is empty or invalid.");
@@ -23,7 +24,7 @@ public:
         T average;
         try
         {
-            average = std::reduce(input.begin(), input.end()) / size;
+            average = std::reduce(begin, end) / size;
         }
         catch (const std::exception &e)
         {
