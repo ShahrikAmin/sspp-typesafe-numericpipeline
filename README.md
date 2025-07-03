@@ -1,9 +1,9 @@
-### SYSC4906C
+### sspp-typesafe-numericpipeline
 
-Group member #1: Shahrik Amin 101155583
-Group member #2: Jaden Sutton 101180717
+Group member #1: Shahrik Amin
+Group member #2: Jaden Sutton
 
-### Assignment 1 documented important decisions in code
+### Documented important decisions in code
 
 ## Reason for numeric concept definition:
 
